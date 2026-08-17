@@ -143,8 +143,9 @@ This repository follows semantic versioning with [Python version specifiers](htt
 N.N.N[{a|b|rc}N][.postN][.devN]
 ```
 
-The following rules apply to the final release versions:
-
-- Major version is raised when the dataset structure is changed in a backwards-incompatible way.
-- Minor version is raised when new data is added in a new `datasets/v*` directory.
+- Major version is raised when the dataset API is changed in a backwards-incompatible way.
+- Minor version is raised when new dataset is added.
 - Patch version is raised when bugs are fixed.
+
+> **NOTE**: The major version is raised only when the dataset is changed in a backward-incompatible way.
+> When new data is added, minor version is raised with new `datasets/v*` directory.
