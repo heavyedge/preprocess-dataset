@@ -2,10 +2,13 @@
 
 pip install uv
 
-uv pip install --system -r requirements.txt -r examples/requirements.txt
-uv pip install --system 'gdown<6.0.0'
-
 mkdir -p ./_data/v1/profiles ./_data/v1/ca
+
+(
+  uv pip install --system -r requirements.txt -r examples/requirements.txt
+  uv pip install --system 'gdown<6.0.0'
+) &
+requirements_pid=$!
 
 (
   gdown --fuzzy "$PROFILES_V1_GDRIVE" -O ./_data/v1/profiles.tar
@@ -20,5 +23,6 @@ profiles_pid=$!
 ) &
 ca_pid=$!
 
+wait "$requirements_pid"
 wait "$profiles_pid"
 wait "$ca_pid"
