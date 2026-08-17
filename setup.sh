@@ -2,11 +2,11 @@
 
 pip install uv
 
+uv pip install --system 'gdown<6.0.0'
 mkdir -p ./_data/v1/profiles ./_data/v1/ca
 
 (
   uv pip install --system -r requirements.txt -r examples/requirements.txt
-  uv pip install --system 'gdown<6.0.0'
 ) &
 requirements_pid=$!
 
