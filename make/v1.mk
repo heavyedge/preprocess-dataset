@@ -156,7 +156,7 @@ test/v1/contact_angle.ipynb: datasets/v1/contact_angles/G50.csv datasets/v1/cont
 test/v1/viscosity.ipynb: examples/v1/viscosities.csv examples/v1/process_variables.csv
 	outfile=$$(mktemp)
 	trap 'rm -rf $$outfile' EXIT INT TERM
-	papermill examples/v1/viscosity.ipynb - -p viscosity_path examples/v1/viscosities.csv -p pv_path examples/v1/process_variables.csv -p out_path $$outfile > /dev/null 2>&1
+	papermill examples/v1/viscosity.ipynb - -p viscosity_path examples/v1/viscosities.csv -p pv_path examples/v1/process_variables.csv -y "figsize: [12, 6]" -p out_path $$outfile > /dev/null 2>&1
 	[ -f "$$outfile" ]
 
 test/v1/dimless.ipynb: examples/v1/process_variables.csv datasets/v1/datapackage.json
